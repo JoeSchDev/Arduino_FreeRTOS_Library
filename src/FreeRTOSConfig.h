@@ -53,7 +53,7 @@
 #define configCPU_CLOCK_HZ                  ( ( uint32_t ) F_CPU )          // This F_CPU variable set by the environment
 #define configMAX_PRIORITIES                4
 #define configIDLE_SHOULD_YIELD             1
-#define configMINIMAL_STACK_SIZE            ( 192 )
+#define configMINIMAL_STACK_SIZE            ( 2048 )
 #define configMAX_TASK_NAME_LEN             ( 8 )
 
 #define configASSERT
@@ -71,14 +71,14 @@
 #define configUSE_QUEUE_SETS                0
 #define configUSE_MALLOC_FAILED_HOOK        1
 
-#define configSUPPORT_DYNAMIC_ALLOCATION    1
-#define configSUPPORT_STATIC_ALLOCATION     0
+#define configSUPPORT_DYNAMIC_ALLOCATION    0
+#define configSUPPORT_STATIC_ALLOCATION     1
 
 /* Timer definitions. */
 #define configUSE_TIMERS                    1
 #define configTIMER_TASK_PRIORITY           ( ( UBaseType_t ) 3 )
 #define configTIMER_QUEUE_LENGTH            ( ( UBaseType_t ) 10 )
-#define configTIMER_TASK_STACK_DEPTH        ( 85 )
+#define configTIMER_TASK_STACK_DEPTH        ( 128 )
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES               0
@@ -105,6 +105,8 @@ to exclude the API function. */
 #define INCLUDE_xTaskGetIdleTaskHandle          0 // create an idle task handle.
 #define INCLUDE_xTaskGetCurrentTaskHandle       0
 #define INCLUDE_uxTaskGetStackHighWaterMark     1
+
+#define INCLUDE_xTimerPendFunctionCall 			1 // added JS
 
 #define configMAX(a,b)  ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
 #define configMIN(a,b)  ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
