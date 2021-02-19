@@ -71,8 +71,8 @@
 #define configUSE_QUEUE_SETS                0
 #define configUSE_MALLOC_FAILED_HOOK        1
 
-#define configSUPPORT_DYNAMIC_ALLOCATION    1
-#define configSUPPORT_STATIC_ALLOCATION     0
+#define configSUPPORT_DYNAMIC_ALLOCATION    0
+#define configSUPPORT_STATIC_ALLOCATION     1
 
 /* Timer definitions. */
 #define configUSE_TIMERS                    1
@@ -105,6 +105,8 @@ to exclude the API function. */
 #define INCLUDE_xTaskGetIdleTaskHandle          0 // create an idle task handle.
 #define INCLUDE_xTaskGetCurrentTaskHandle       0
 #define INCLUDE_uxTaskGetStackHighWaterMark     1
+
+#define INCLUDE_xTimerPendFunctionCall 			1 // added JS
 
 #define configMAX(a,b)  ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
 #define configMIN(a,b)  ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
